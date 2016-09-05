@@ -38,9 +38,6 @@ The credentials files will contain the secret key information for the profiles y
 From within the EC2 Management Console you will need to create a Tag Key "BACKUP", and tagged the instances to be backed up with the key "True". The scripts uses this to determine which instances to create new images of. 
 In order to rotate backups you will also need to create a Tag Key "Rotation", and tag backup AMI with a key 1, 2, 3 and 4 (4 being the oldest, 1 being the most recent) The script uses these keys to de-registed the oldest AMI (4), and shift each rotation number before creating a AMI of each instance marked for backup.
 
-@TODO tag newly created image as rotation 1, so I don't have to do it manually for each one.
-I have not yet configured the script to identify the new image and set the Tag key 'Rotation' to 1, so I do this manually via the AWS EC2 Management console.
- 
 ##Personal Example
 Below are the steps/information that apply to me - they may well be different for you. 
 I backup instances from 2 regions, so when I ran 'aws configure' I set two profiles, one for each region. This can be found in the config file. 
