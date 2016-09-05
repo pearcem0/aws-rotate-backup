@@ -4,8 +4,6 @@ aws-rotate-backup was created to provide easy backups/images for multiple EC2 in
 The script identifies AMIs tagged as Rotation 4, and de-registers them. It then identifies AMIs tagged as Rotation 3 and re-tags them Rotation 4, re-tags Rotation 2 as Rotation 3, and Rotation 1 as Rotation 2. 
 The script then creates a new image of the selected EC2 instances (`tag: BACKUP`, `key: True`) and names it accordingly - `INSTANCENAME_BACKUP_DATE`
 
-@TODO - the script does not yet identify the new image and tag it as Rotation 1, I do that manually using the aws EC2 Management Console.
-
 If anything disasterous happens to the server instance, it allows me to launch a (fairly) recent backup of the instance to continue from. Sometimes you may need to quickly launch the instance to compare like for like, informal experimentation etc. etc.
 
 #Common uses include - 
