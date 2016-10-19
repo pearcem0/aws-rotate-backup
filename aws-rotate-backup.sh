@@ -13,15 +13,20 @@ if [[ -z "${user_profiles[@]}" ]]; then
     exit
 fi
 
+if [[ $# -eq 0 ]] ; then
 echo "Which profile would you like to backup?"
 COUNTER=0
 for i in "${!user_profiles[@]}"
 do
     printf '%s\n' "${user_profiles[$i]}"" - Press $COUNTER" 
-    COUNTER=$[COUNTER + 1]
+    COUNTER=$((COUNTER + 1))
 done
 read choice
 chosenprofile="${user_profiles[$choice]}"
+else
+chosenprofile="${user_profiles[$1]}"
+echo "Chosen profile: $chosenprofile"
+fi
 
 if [[ -z "$chosenprofile" ]];
 then echo 'Invalid selection. Exiting'
