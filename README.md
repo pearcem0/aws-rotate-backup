@@ -1,6 +1,7 @@
 # aws-rotate-backup
 
-For better automation and backup pruning, you may want to use lambda - https://github.com/pearcem0/aws-backup-lamba
+NOTE: For better automation and backup pruning, you may want to use lambda - https://github.com/pearcem0/aws-backup-lamba
+
 aws-rotate-backup was created to provide easy backups/images for multiple EC2 instances (and in different regions) and rotating the backups weekly, keeping a backup image of the instance every week for 1 month at a time. 
 
 The script identifies AMIs tagged as Rotation 4, and de-registers them. It then identifies AMIs tagged as Rotation 3 and re-tags them Rotation 4, re-tags Rotation 2 as Rotation 3, and Rotation 1 as Rotation 2. 
